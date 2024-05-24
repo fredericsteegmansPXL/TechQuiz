@@ -19,6 +19,9 @@ h1 {
     font-size: 30pt;
 }
 
+h1 span {
+    color: #29BD90;
+}
 
 #options {
     margin-top: 10px;
@@ -73,7 +76,6 @@ button:hover {
 
 #result {
     text-align: center;
-    font-weight: bold;
     margin-top: 20px;
 }
 
@@ -89,6 +91,7 @@ button:hover {
     background-color: #29BD90;
     border: 1px solid #29BD90;
     color: #ffffff;
+    box-shadow: 1px 1px 10px rgba(41, 189, 144, 0.5);
 }
 
 
@@ -97,5 +100,12 @@ button:hover {
     flex-wrap: wrap;
 }
 
+#image-container #question-image {
+    max-width: 60%;
+    display: block;
+    margin: 2rem auto;
+    border-radius: 1rem;
+    box-shadow: 3px 3px 22px rgba(6, 6, 80, 0.28);
+}
 
 
