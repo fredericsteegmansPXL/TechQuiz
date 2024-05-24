@@ -29,6 +29,10 @@ let userAnswer = null;
 loadQuiz();
 
 function loadQuiz() {
+    // Remove inline display styles
+    questionElement.style.removeProperty('display');
+    optionsElement.style.removeProperty('display');
+
     const currentQuizData = quizData[currentQuestion];
     questionElement.innerText = currentQuizData.question;
     optionsElement.innerHTML = "";
@@ -56,6 +60,7 @@ function loadQuiz() {
     resultElement.innerText = ""; // Clear result paragraph
 }
 
+
 function selectOption() {
     const currentQuizData = quizData[currentQuestion];
     if (userAnswer === currentQuizData.answer) {
@@ -67,9 +72,24 @@ function selectOption() {
 
 function showResult() {
     resultElement.innerText = `You scored ${score}/${quizData.length}`;
+
+    questionElement.style.display = "none";
+    optionsElement.style.display = "none";
+    quizData.forEach((quizItem, index) => {
+        const question = document.createElement("p");
+        question.textContent = `${index + 1}. ${quizItem.question}`;
+        const answer = document.createElement("p");
+        answer.textContent = `${quizItem.answer}`;
+        resultElement.appendChild(question);
+        resultElement.appendChild(answer);
+        resultElement.appendChild(document.createElement("hr")); // Add a horizontal line between questions
+    });
+
     submitButton.style.display = "none";
     restartButton.style.display = "block";
 }
+
+
 
 submitButton.addEventListener("click", () => {
     selectOption(); // Evaluate the user's answer
@@ -86,5 +106,4 @@ restartButton.addEventListener("click", () => {
     score = 0;
     loadQuiz();
 });
-
 
