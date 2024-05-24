@@ -106,8 +106,11 @@ function showResult() {
         const quizItem = quizData[index];
         const question = document.createElement("p");
         question.textContent = `${i + 1}. ${quizItem.question}`;
+        question.style.paddingTop = "30px";
+        question.style.paddingBottom = "20px";
         const answer = document.createElement("h4");
         answer.textContent = `${quizItem.answer}`;
+        answer.style.paddingBottom = "40px";
         resultElement.appendChild(question);
         resultElement.appendChild(answer);
         resultElement.appendChild(document.createElement("hr")); // Add a horizontal line between questions
